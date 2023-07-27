@@ -1,139 +1,119 @@
 main {
-    max-width: 1300px;
-    margin: 0 auto;
-    background: white;
-    .date {
-      font-size: 1.2rem;
-      color: rgb(48, 46, 46);
-      position: relative;
-      width: 80%;
-      text-align: center;
-      &::before,
-      &::after {
-        content: "";
-        height: 2px;
-        width: 37%;
-        background: rgba(180, 180, 180, 0.384);
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        @media screen and (max-width: 700px ) {
-    
-      
-          width: 30%;
-        }
-        @media screen and (max-width: 450px ) {
-    
-      
-          width: 20%;
-        }
-       
-      }
-      &::before
-      {
-        left: 0;
-      }
-      &::after {
-      right: 0;
-      }
-    }
-    @media screen and (max-width: 1000px ) {
-    
-      
-      width: 90%;
-    }
-  }
-  h2 {
+  max-width: 1300px;
+  margin: 0 auto;
+  background: white;
+  .date {
+    font-size: 1.2rem;
+    color: rgb(48, 46, 46);
+    position: relative;
+    width: 80%;
     text-align: center;
-    text-transform: uppercase;
-    margin: 10px;
-    padding: 10px;
-    font-family: "Inter", sans-serif;
-    font-size: 3rem;
-    @media screen and (max-width: 1050px) {
-      font-size: 2.5rem;
+    &::before,
+    &::after {
+      content: "";
+      height: 2px;
+      width: 37%;
+      background: rgba(180, 180, 180, 0.384);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      @media screen and (max-width: 700px) {
+        width: 30%;
+      }
+      @media screen and (max-width: 450px) {
+        width: 20%;
+      }
     }
-    @media screen and (max-width: 800px) {
-      font-size: 1.5rem;
+    &::before {
+      left: 0;
+    }
+    &::after {
+      right: 0;
     }
   }
-  .main-top {
+  @media screen and (max-width: 1000px) {
+    width: 90%;
+  }
+}
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10px;
+  padding: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 3rem;
+  @media screen and (max-width: 1050px) {
+    font-size: 2.5rem;
+  }
+  @media screen and (max-width: 800px) {
+    font-size: 1.5rem;
+  }
+}
+.main-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px;
+  @media screen and (max-width: 1000px) {
+    padding: 30px 10px;
+  }
+
+  .text-part {
+    width: 60%;
+    text-align: center;
+    margin: 30px;
+  }
+  img {
+    width: 80%;
+  }
+}
+.main-bottom {
+  display: flex;
+  .bottom-left,
+  .bottom-right {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
-    padding: 50px;
-    @media screen and (max-width: 1000px ) {
-         
-      padding: 30px 10px;
-      
-      
+    width: 80%;
+    border-top: 1px solid rgba(128, 128, 128, 0.466);
+    @media screen and (max-width: 1000px) {
+      width: 100%;
     }
-  
-    .text-part {
-      width: 60%;
-      text-align: center;
-      margin: 30px;
+    h3 {
+      font-size: 1.5rem;
+      font-family: "Inter", sans-serif;
+      text-transform: uppercase;
+      margin: 20px;
     }
     img {
-      width: 80%;
-    }
-  }
-  .main-bottom {
-    display: flex;
-    .bottom-left,
-    .bottom-right {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 80%;
-      border-top: 1px solid rgba(128, 128, 128, 0.466);
-      @media screen and (max-width: 1000px ) {
-         
-        width: 100%;
-        
-        
-      }
-      h3 {
-        font-size: 1.5rem;
-        font-family: "Inter", sans-serif;
-        text-transform: uppercase;
-        margin: 20px;
-      }
-      img {
-        width: 100%;
-      }
-      p {
-        text-align: justify;
-        padding: 10px 0;
-      }
-    }
-    .bottom-left {
-      border-right: 1px solid rgba(128, 128, 128, 0.466);
-      @media screen and (max-width: 1000px ) {
-        
-        width: 100%;
-        
-        
-      }
-    }
-  
-    .text-part {
-      width: 80%;
-      text-align: center;
-      margin: 30px 20px;
-      .date-bottom {
-        font-size: 1.2rem;
-        color: rgb(48, 46, 46);
-     
-      }
-    }
-    @media screen and (max-width: 1000px ) {
-      display: block;
       width: 100%;
-      
-      
+    }
+    p {
+      text-align: justify;
+      padding: 10px 0;
     }
   }
+  .bottom-left {
+    border-right: 1px solid rgba(128, 128, 128, 0.466);
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+    }
+  }
+
+  .text-part {
+    width: 80%;
+    text-align: center;
+    margin: 30px 20px;
+    .date-bottom {
+      font-size: 1.2rem;
+      color: rgb(48, 46, 46);
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    display: block;
+    width: 100%;
+  }
+}
