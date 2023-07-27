@@ -1,0 +1,89 @@
+header {
+  width: 80%;
+  margin: 0 auto;
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transform: translateY(40px);
+    opacity: 0;
+    animation: headerAnim 1.5s forwards;
+    @keyframes headerAnim {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media screen and (max-width: 970px ) {
+      height: 600px;
+  
+      
+      
+    }
+    h1 {
+      font-size: calc(1300vw / 250);
+      width: 80%;
+      text-align: center;
+      text-transform: uppercase;
+      margin: 10px;
+      padding: 10px;
+      @media screen and (max-width: 650px ) {
+        font-size: 2.5rem;
+        
+        
+      }
+      @media screen and (max-width: 470px ) {
+        font-size: 1.8rem;
+        
+        
+      }
+    }
+      
+  
+    p {
+      font-size: (800vw / 410);
+      font-style: italic;
+      text-align: center;
+      margin: 10px;
+      padding: 10px;
+      line-height: 3rem;
+      @media screen and (max-width: 650px ) {
+        font-size: 1rem;
+        
+        
+      }
+      @media screen and (max-width: 470px ) {
+        font-size: 0.8rem;
+        
+        
+      }
+    
+        
+      }
+    
+    i {
+      font-size: 1.5rem;
+      margin: 30px;
+      padding: 20px;
+      border: 2px solid white;
+      border-radius: 100%;
+      min-width: 70px;
+      text-align: center;
+      transition: 0.2s;
+      &:hover {
+        transform: scale(1.1);
+        
+      }
+      @media screen and (max-width: 470px ) {
+        font-size: 1rem;
+        min-width: 50px;
+        margin: 30px;
+      padding: 15px;
+      border: 2px solid white;
+        
+      }
+    }
+  }

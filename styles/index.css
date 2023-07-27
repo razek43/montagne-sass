@@ -1,4 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Merriweather:wght@300&display=swap");
+@font-face {
+  font-family: "inter";
+  src: url(../assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+@font-face {
+  font-family: "merriweather";
+  src: url(../assets/fonts/Merriweather-Light.ttf);
+}
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +24,29 @@
 body {
   background: url(../assets/images/bg.jpg) center/cover fixed;
 }
+body::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: black;
+  -webkit-animation: animBefore 1.5s ease forwards;
+          animation: animBefore 1.5s ease forwards;
+  -webkit-animation-delay: 0.15s;
+          animation-delay: 0.15s;
+}
+@-webkit-keyframes animBefore {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes animBefore {
+  to {
+    opacity: 0;
+  }
+}
 
 h1 {
   font-family: "Inter", sans-serif;
@@ -21,6 +55,11 @@ h1 {
 p {
   font-family: "Merriweather", serif;
   line-height: 2rem;
+}
+@media screen and (max-width: 500px) {
+  p {
+    font-size: 0.8rem;
+  }
 }
 
 button {
@@ -38,9 +77,15 @@ button:hover {
   color: white;
 }
 
+a,
+a:visited {
+  color: white;
+}
+
 header {
-  width: 100%;
-  height: 900px;
+  width: 80%;
+  margin: 0 auto;
+  height: 93vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,20 +100,66 @@ header {
       -ms-flex-align: center;
           align-items: center;
   color: white;
+  -webkit-transform: translateY(40px);
+          transform: translateY(40px);
+  opacity: 0;
+  -webkit-animation: headerAnim 1.5s forwards;
+          animation: headerAnim 1.5s forwards;
+}
+@-webkit-keyframes headerAnim {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes headerAnim {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 970px) {
+  header {
+    height: 600px;
+  }
 }
 header h1 {
-  font-size: 5rem;
-  width: 60%;
+  font-size: 5.2vw;
+  width: 80%;
   text-align: center;
   text-transform: uppercase;
   margin: 10px;
   padding: 10px;
 }
+@media screen and (max-width: 650px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 470px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+}
 header p {
-  font-size: 1.5rem;
+  font-size: 1.9512195122vw;
   font-style: italic;
+  text-align: center;
   margin: 10px;
   padding: 10px;
+  line-height: 3rem;
+}
+@media screen and (max-width: 650px) {
+  header p {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 470px) {
+  header p {
+    font-size: 0.8rem;
+  }
 }
 header i {
   font-size: 1.5rem;
@@ -85,9 +176,18 @@ header i:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
+@media screen and (max-width: 470px) {
+  header i {
+    font-size: 1rem;
+    min-width: 50px;
+    margin: 30px;
+    padding: 15px;
+    border: 2px solid white;
+  }
+}
 
 nav {
-  width: 1300px;
+  max-width: 1300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -105,22 +205,60 @@ nav {
           align-items: center;
   height: 70px;
   background: rgba(116, 115, 115, 0.473);
+  position: relative;
+  z-index: 1;
+}
+@media screen and (max-width: 1000px) {
+  nav {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 90%;
+  }
+}
+@media screen and (max-width: 700px) {
+  nav {
+    display: none;
+  }
 }
 nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   height: 70px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 80%;
+}
+@media screen and (max-width: 1150px) {
+  nav ul {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+nav .left-part {
+  width: 100%;
+}
+nav .left-part:hover li:not(:hover) {
+  background: none;
+  color: white;
 }
 nav .left-part li {
-  padding: 28px 20px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  padding: 27px 20px;
+  width: 100%;
+  text-align: center;
+}
+nav .left-part li:first-child {
+  background: white;
+  color: rgb(31, 30, 30);
+}
+@media screen and (max-width: 1100px) {
+  nav .right-part {
+    display: none;
+  }
 }
 nav .right-part li {
+  width: 100%;
   padding: 23px 20px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -135,7 +273,7 @@ nav li:hover {
 }
 
 main {
-  width: 1300px;
+  max-width: 1300px;
   margin: 0 auto;
   background: white;
 }
@@ -143,30 +281,39 @@ main .date {
   font-size: 1.2rem;
   color: rgb(48, 46, 46);
   position: relative;
+  width: 80%;
+  text-align: center;
+}
+main .date::before, main .date::after {
+  content: "";
+  height: 2px;
+  width: 37%;
+  background: rgba(180, 180, 180, 0.384);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+@media screen and (max-width: 700px) {
+  main .date::before, main .date::after {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 450px) {
+  main .date::before, main .date::after {
+    width: 20%;
+  }
 }
 main .date::before {
-  content: "";
-  height: 2px;
-  width: 350px;
-  background: rgba(180, 180, 180, 0.384);
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  -webkit-transform: translateX(-120%);
-          transform: translateX(-120%);
+  left: 0;
 }
 main .date::after {
-  content: "";
-  height: 2px;
-  width: 350px;
-  background: rgba(180, 180, 180, 0.384);
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  -webkit-transform: translateX(20%);
-          transform: translateX(20%);
+  right: 0;
+}
+@media screen and (max-width: 1000px) {
+  main {
+    width: 90%;
+  }
 }
 
 h2 {
@@ -176,6 +323,16 @@ h2 {
   padding: 10px;
   font-family: "Inter", sans-serif;
   font-size: 3rem;
+}
+@media screen and (max-width: 1050px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  h2 {
+    font-size: 1.5rem;
+  }
 }
 
 .main-top {
@@ -193,6 +350,11 @@ h2 {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 50px;
+}
+@media screen and (max-width: 1000px) {
+  .main-top {
+    padding: 30px 10px;
+  }
 }
 .main-top .text-part {
   width: 60%;
@@ -226,6 +388,12 @@ h2 {
   width: 80%;
   border-top: 1px solid rgba(128, 128, 128, 0.466);
 }
+@media screen and (max-width: 1000px) {
+  .main-bottom .bottom-left,
+  .main-bottom .bottom-right {
+    width: 100%;
+  }
+}
 .main-bottom .bottom-left h3,
 .main-bottom .bottom-right h3 {
   font-size: 1.5rem;
@@ -245,6 +413,11 @@ h2 {
 .main-bottom .bottom-left {
   border-right: 1px solid rgba(128, 128, 128, 0.466);
 }
+@media screen and (max-width: 1000px) {
+  .main-bottom .bottom-left {
+    width: 100%;
+  }
+}
 .main-bottom .text-part {
   width: 80%;
   text-align: center;
@@ -254,13 +427,19 @@ h2 {
   font-size: 1.2rem;
   color: rgb(48, 46, 46);
 }
+@media screen and (max-width: 1000px) {
+  .main-bottom {
+    display: block;
+    width: 100%;
+  }
+}
 
 footer {
-  width: 1300px;
+  max-width: 1300px;
   margin: 30px auto;
   display: grid;
   grid-template-columns: 50% 50%;
-  background: rgb(224, 224, 224);
+  background: rgb(240, 238, 238);
 }
 footer form {
   display: -webkit-box;
@@ -276,7 +455,7 @@ footer form {
   letter-spacing: 0.2rem;
   color: rgb(97, 97, 97);
   width: 100%;
-  padding: 80px 60px;
+  padding: 80px 30px;
 }
 footer form input {
   background: none;
@@ -311,9 +490,9 @@ footer form textarea {
   margin: 20px 0;
 }
 footer form #btn {
-  grid-area: btn;
-  width: 40%;
-  margin: 10px 0;
+  max-width: 60%;
+  padding: 10px 30px;
+  margin: 30px auto;
   height: 45px;
   border-radius: 0;
   border: 2px solid grey;
@@ -321,7 +500,7 @@ footer form #btn {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  color: rgb(97, 97, 97);
+  color: rgb(129, 110, 110);
   cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
@@ -329,6 +508,16 @@ footer form #btn {
 footer form #btn:hover {
   background: grey;
   color: white;
+}
+@media screen and (max-width: 1100px) {
+  footer form #btn {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  footer form #btn {
+    max-width: 100%;
+  }
 }
 footer .footer-right {
   padding: 40px 0;
@@ -351,6 +540,11 @@ footer .footer-right h3 {
   color: rgb(97, 97, 97);
   line-height: 2rem;
 }
+@media screen and (max-width: 500px) {
+  footer .footer-right h3 {
+    font-size: 0.7rem;
+  }
+}
 footer .footer-right div {
   display: grid;
   grid-template-columns: 30% 70%;
@@ -359,7 +553,21 @@ footer .footer-right div {
           align-items: center;
   height: 100%;
   border-bottom: 1px solid rgba(128, 128, 128, 0.466);
-  padding: 30px;
+  padding: 30px 70px;
+}
+@media screen and (max-width: 500px) {
+  footer .footer-right div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
 }
 footer .footer-right div ul {
   display: -webkit-box;
@@ -372,12 +580,19 @@ footer .footer-right div ul {
 }
 footer .footer-right div li {
   font-size: 1.3rem;
-  margin: 0 10px;
-  padding: 10px;
+  width: 50px;
+  height: 50px;
   border: 1px solid grey;
-  border-radius: 100%;
-  min-width: 50px;
-  text-align: center;
+  border-radius: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
@@ -386,6 +601,19 @@ footer .footer-right div li:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
+@media screen and (max-width: 1000px) {
+  footer .footer-right div li {
+    margin: 0 5px;
+  }
+}
+@media screen and (max-width: 500px) {
+  footer .footer-right div li {
+    margin: 0 5px;
+    padding: 5px;
+    min-width: 35px;
+    font-size: 1.1rem;
+  }
+}
 footer .footer-right .adress {
   -webkit-box-align: start;
       -ms-flex-align: start;
@@ -393,4 +621,14 @@ footer .footer-right .adress {
 }
 footer .footer-right .social {
   border-bottom: none;
+}
+@media screen and (max-width: 1000px) {
+  footer {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 900px) {
+  footer {
+    display: block;
+  }
 }/*# sourceMappingURL=index.css.map */
